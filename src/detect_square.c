@@ -6,6 +6,8 @@
 */
 
 #include <bsq.h>
+#include <my.h>
+#include <stdlib.h>
 
 int min_calc(int a, int b, int c)
 {
@@ -21,25 +23,26 @@ int min_calc(int a, int b, int c)
             return b;
 }
 
-void get_bsq(map_t *map)
+int biggest_square(int **map, int row, int col)
 {
-    for (int index = 0; index < map->size; index++) {
-        if (map->map[index] > map->bsq)
-            map->bsq = map->map[index];
-    }
-}
+    int **cache = mem_dup_2d_array(map, row, col);
+    int result = 0;
+    int min;
 
-void detect_squares(map_t *map)
-{
-    char_to_int_map(map);
-    int index_int = 0;
-
-    map_filter(map);
-    for (int index = 0; index < map->file_size; index++) {
-        if (map->file[index] != '\0' && map->file[index] != '\n') {
-            map->file[index] = map->map[index_int];
-            index_int++;
+    for (int i = 0; i < row; ++i) {
+        for (int j = 0; j < col; ++j) {
+            if (i == 0 || j == 0)
+                continue;
+            if (map[i][j] > 0) {
+                min = min_calc(cache[i][j - 1],
+                                cache[i - 1][j],
+                                cache[i - 1][j - 1]);
+                cache[i][j] = 1 + min;
+            }
+            if (cache[i][j] > result)
+                result = cache[i][j];
         }
     }
-    my_putstr(map->file);
+    free_int_2d(map, row);
+    return filter_map(cache, row, col, result);
 }

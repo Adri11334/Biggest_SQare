@@ -9,11 +9,11 @@ NO_CRITERION	=	src/main.c
 
 SRC	=	src/detect_square.c	\
 		src/error_handle.c	\
-		src/free_zone.c	\
+		src/fill_square.c	\
+		src/gen_2d_map.c	\
 		src/get_file.c	\
-		src/get_map.c	\
-		src/map_create.c	\
-		src/map_gestion.c
+		src/free_zone.c	\
+		src/get_map.c
 
 SRC_C	=	tests/tests_open_file.c
 
@@ -27,7 +27,6 @@ CFLAGS	=	-Wall -Wextra -Werror -Wshadow -Wimplicit -pedantic
 
 CPPFLAGS += -I./include/
 CPPFLAGS += -L./lib -lmy
-CPPFLAGS += -O2
 
 all:	$(NAME)
 
@@ -50,7 +49,6 @@ cover:
 	make -C ./ clean
 
 clean:
-	make -s -C ./lib/my clean
 	rm -f $(OBJ)
 	rm -f *.o
 	rm -f *~
@@ -64,7 +62,6 @@ fclean:	clean
 	rm -f criterions_r/*.html
 	rm -f criterions_r/*.css
 	rm -rf criterions_r/
-	make -s -C ./lib/my fclean
 
 re:	fclean all
 

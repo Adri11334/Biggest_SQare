@@ -6,24 +6,26 @@
 */
 
 #include <bsq.h>
+#include <my.h>
+#include <fcntl.h>
+#include <unistd.h>
 
-int fs_open_read_file(char const *filepath, int fd, map_t *map)
+int fs_open_read_file(char const *filepath, char *buffer, int size)
 {
-    struct stat file_stat;
+    int file_descriptor;
     int read_status;
 
-    if (fd == -1)
+    file_descriptor = open(filepath, O_RDONLY);
+    if (file_descriptor == -1) {
         return error_handler(1, filepath);
-    stat(filepath, &file_stat);
-    map->file_size = file_stat.st_size;
-    map->file = malloc(file_stat.st_size + 1);
-    read_status = read(fd, map->file, map->file_size);
-    close(fd);
+    }
+    read_status = read(file_descriptor, buffer, size);
+    close(file_descriptor);
     if (read_status == -1)
         return error_handler(2, filepath);
-    if (read_status == 0)
+    if (read_status == 0) 
         return error_handler(3, filepath);
-    if (read_status < map->file_size)
+    if (read_status < size)
         return error_handler(4, filepath);
-    return fd;
+    return file_descriptor;
 }

@@ -6,6 +6,7 @@
 */
 
 #include <bsq.h>
+#include <my.h>
 
 int display_help(void)
 {
@@ -15,13 +16,6 @@ int display_help(void)
     return 0;
 }
 
-int check_help(char *arg)
-{
-    if (my_strcmp(arg, "-h") == 0)
-        return display_help();
-    return get_map(arg);
-}
-
 int main(int argc, char **argv)
 {
     if (argc < 2)
@@ -29,6 +23,9 @@ int main(int argc, char **argv)
     else if (argc > 2)
         return error_handler(7);
     else {
-        return check_help(argv[1]);
+        if (my_strcmp(argv[1], "-h") == 0)
+            return display_help();
+        else
+            return get_map(argv[1]);
     }
 }

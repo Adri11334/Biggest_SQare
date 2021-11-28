@@ -5,28 +5,20 @@
 ** free multiple array
 */
 
-#include <bsq.h>
+#include <stdlib.h>
 
-void *my_malloc(int size, char *buf)
+void free_int_2d(int **array, int line)
 {
-    char *str = malloc(size);
-    int buf_len = -1;
-
-    if (buf != NULL)
-        buf_len = my_strlen(buf);
-    for (int i = 0; i < size; i++) {
-        if (i < buf_len)
-            str[i] = buf[i];
-        else
-            str[i] = 0;
+    for (int i = 0; i < line; i++) {
+        free(array[i]);
     }
-    return str;
+    free(array);
 }
 
-void free_char_changed(char *array, int decal)
+void free_char_2d(char **array, int line)
 {
-    for (int i = 0; i != decal + 1; i++) {
-        array--;
+    for (int i = 0; i < line; i++) {
+        free(array[i]);
     }
     free(array);
 }

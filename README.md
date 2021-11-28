@@ -3,27 +3,22 @@
 > B-CPE-110
 
 # {EPITECH} - BSQ
-#### find the Biggest SQuare (1D Array Version)
+#### find the Biggest SQuare (2D Array Version)
 
 ### Coding Style
 - style mark: ?
-- style major: ?
-- style minor: ?
-- style info: ?
+- style major: 7
+- style minor: 17
+- style info: 11
 <br>
 
 ### Note : ?%
-- 01: ?/5
-- 02: ?/2
-- 03: ?/5
-- 04: ?/5
-- 05: ?/5
-- 06: ?/5
-- 07: ?/2
-- 08: ?/10
-- 09: ?/4
+> (KO: Executable "./bsq" not found.)
+**No tests passed**<br>
+Erreur de compilation dans le Makefile<br>
+Doit passer au meme % que la version 1D, juste moins opti
 
-### Coverage: ?%
+### Coverage: 91.2%
 <br>
 
 ### Content

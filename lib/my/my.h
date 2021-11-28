@@ -41,4 +41,4 @@ char *my_strncat(char *dest, char const *src, int nb);
 char check_letter(char letter);
 int check_string(char *str, int *mc, long *fn, int *i);
 
-#endif/* !MY_H_ */
+#endif /* !MY_H_ */

@@ -12,27 +12,17 @@
 
 void redirect_all_stdout(void);
 
-/* Test(check_errror_1, check_errror_1)
-{
-    cr_assert_eq(error_handler(1), 84);
-}
-
-Test(check_errror_2, check_errror_2)
+Test(errro2, errro2)
 {
     cr_assert_eq(error_handler(2), 84);
 }
 
-Test(check_errror_3, check_errror_3)
-{
-    cr_assert_eq(error_handler(3), 84);
-}
-
-Test(check_errror_4, check_errror_4)
+Test(errro4, errro4)
 {
     cr_assert_eq(error_handler(4), 84);
-} */
+}
 
-Test(errror5, errror5)
+Test(errro5, errro5)
 {
     cr_assert_eq(error_handler(5), 84);
 }

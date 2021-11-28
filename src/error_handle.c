@@ -5,7 +5,8 @@
 ** error handling file
 */
 
-#include <bsq.h>
+#include <my.h>
+#include <stdarg.h>
 
 int error_handler_3(va_list list, int type)
 {
@@ -33,7 +34,7 @@ int error_handler_2(va_list list, int type)
     if (type == 4) {
         my_putstr("Read of '");
         my_putstr(va_arg(list, char*));
-        my_putstr("' didn't complete the entire buffer, ./bsq -h\n");
+        my_putstr("'  didn't complete the entire buffer, ./bsq -h\n");
         return 84;
     }
     if (type == 5) {
@@ -57,7 +58,7 @@ int error_handler(int type, ...)
     if (type == 2) {
         my_putstr("Failed to read '");
         my_putstr(va_arg(list, char*));
-        my_putstr("', ./bsq -h\n");
+        my_putstr("' , ./bsq -h\n");
         return 84;
     }
     return error_handler_2(list, type);
