@@ -6,24 +6,24 @@
 #### find the Biggest SQuare (1D Array Version)
 
 ### Coding Style
-- style mark: ?
-- style major: ?
-- style minor: ?
-- style info: ?
+- style mark: 0
+- style major: 1
+- style minor: 1
+- style info: 0
 <br>
 
-### Note : ?%
-- 01: ?/5
-- 02: ?/2
-- 03: ?/5
-- 04: ?/5
-- 05: ?/5
-- 06: ?/5
-- 07: ?/2
-- 08: ?/10
-- 09: ?/4
+### Note : 97.4%
+- 01: 5/5
+- 02: 2/2
+- 03: 5/5
+- 04: 5/5
+- 05: 5/5
+- 06: 5/5
+- 07: 2/2
+- 08: 10/10
+- 09: 2/4
 
-### Coverage: ?%
+### Coverage: 74%
 <br>
 
 ### Content
